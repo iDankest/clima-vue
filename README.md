@@ -13,8 +13,7 @@ Este proyecto es una aplicación web para consultar el clima, desarrollada con e
 
 > Toda la planificación, el paso a paso, los apuntes del proceso y la documentación detallada de este proyecto se encuentra centralizada en **Notion**. Es el verdadero centro de operaciones y la fuente de verdad de la arquitectura de esta app.
 >
-> **[➡️ Acceder a la documentación en Notion](https://www.notion.so/)** *(Recuerda cambiar este enlace por el de tu página de Notion)*
-
+> **[➡️ Acceder a la documentación en Notion](https://www.notion.so/Clima-App-22e5592c6f7e80788317d82ca7db145c?source=copy_link)**
 ---
 
 ### ✨ Características Principales
@@ -39,7 +38,7 @@ Sigue estos pasos para levantar el proyecto en tu entorno local.
 
 1.  **Clona el repositorio:**
     ```sh
-    git clone <URL_DE_TU_REPOSITORIO>
+    git clone https://github.com/idankest/clima-vue.git
     ```
 
 2.  **Navega a la carpeta del proyecto:**
