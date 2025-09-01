@@ -1,10 +1,12 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
 const busqueda = reactive({
     ciudad: '',
     pais: ''
 })
+
+const error = ref('')
 
 const paises = [
     {codigo: 'AR', nombre: 'Argentina'},
