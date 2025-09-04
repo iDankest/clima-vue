@@ -8,33 +8,32 @@ const busqueda = reactive({
 })
 
 const error = ref('')
-
+const emit = defineEmits(['obtener-clima'])
 const paises = [
-    {codigo: 'AR', nombre: 'Argentina'},
-    {codigo: 'BR', nombre: 'Brasil'},
-    {codigo: 'CL', nombre: 'Chile'},
-    {codigo: 'CO', nombre: 'Colombia'},
-    {codigo: 'EC', nombre: 'Ecuador'},
-    {codigo: 'PY', nombre: 'Paraguay'},
-    {codigo: 'PE', nombre: 'Perú'},
-    {codigo: 'VE', nombre: 'Venezuela'},
-    {codigo: 'ES', nombre: 'España'}
-]
+        { codigo: 'US', nombre: 'Estados Unidos' },
+        { codigo: 'MX', nombre: 'México' },
+        { codigo: 'AR', nombre: 'Argentina' },
+        { codigo: 'CO', nombre: 'Colombia' },
+        { codigo: 'CR', nombre: 'Costa Rica' },
+        { codigo: 'ES', nombre: 'España' },
+        { codigo: 'PE', nombre: 'Perú' }
+    ]
 
-const buscarClima = () => {
-    if (Object.values(busqueda).includes('')) {
-        error.value = 'Todos los campos son obligatorios'
-        return
+    const consultarClima = () => {
+        if(Object.values(busqueda).includes('')) {
+            error.value = 'Todos los campos son obligatorios'
+            return
+        }
+
+        error.value = ''
+        emit('obtener-clima', busqueda)
     }
-
-    error.value = ''
-}
     
 </script>
 
 <template>
     <form class="formulario"
-    @submit.prevent="buscarClima"
+    @submit.prevent="consultarClima"
     >
         <Alerta v-if="error" :mensaje="error" />
         <div class="campo">
