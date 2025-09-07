@@ -1,4 +1,3 @@
-// Codigo CORRECTO
 import axios from 'axios'
 import { ref, computed } from 'vue'
 
@@ -19,18 +18,23 @@ export default function useClima() {
         } catch (error) {
             console.log(error)
         }
-    }
 
-    // MOVIDO AQUÍ AFUERA
-    // Ahora "mostrarClima" está en el scope correcto y reacciona
-    // a los cambios de "clima.value"
+
+        
+
+    }
     const mostrarClima = computed(() => {
         return Object.keys(clima.value).length > 0 
     })
 
+    const convertirKelvinACelsius = (grados) => {
+        return Math.round(grados - 273.15)
+    }
+
     return {
         obtenerClima,
         clima,
-        mostrarClima
+        mostrarClima,
+        convertirKelvinACelsius
     }
 }

@@ -3,7 +3,7 @@ import ComponeteClima from './components/ComponeteClima.vue'
 import Formulario from './components/Formulario.vue'
 import useClima  from './composables/useClima.js'
 
-const { obtenerClima, clima, mostrarClima } = useClima()
+const { obtenerClima, clima, mostrarClima, convertirKelvinACelsius } = useClima()
 </script>
 
 <template>
@@ -12,6 +12,6 @@ const { obtenerClima, clima, mostrarClima } = useClima()
     <Formulario 
         @obtener-clima="obtenerClima"
     />
-    <ComponeteClima v-if="mostrarClima"/>
+    <ComponeteClima v-if="mostrarClima" :clima="clima" :convertirKelvinACelsius="convertirKelvinACelsius"/>
   </div>
 </template>
