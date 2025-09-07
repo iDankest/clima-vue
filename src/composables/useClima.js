@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export default function useClima() {
     const clima = ref({})
@@ -19,9 +19,16 @@ export default function useClima() {
             console.log(error)
         }
 
+        const mostrarClima = computed(() => {
+            return Object.keys(clima.value).length > 0 
+        })
+
+        
+
     }
     return {
         obtenerClima,
-        clima
+        clima,
+        mostrarClima
     }
 }
