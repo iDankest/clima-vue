@@ -3,9 +3,14 @@ import { ref, computed } from 'vue'
 
 export default function useClima() {
     const clima = ref({})
+    const cargando = ref(false)
+    const error = ref('')
     const obtenerClima = async ({ciudad, pais}) => {
 
         const apiKey = import.meta.env.VITE_API_KEY
+        cargando.value = true
+        clima.value = {}
+        error.value = ''
         try {
             //Obtener Lat y Lon
             const url = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=1&appid=${apiKey}`
@@ -15,12 +20,12 @@ export default function useClima() {
             const urlClima = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
             const {data: resultado} = await axios.get(urlClima)
             clima.value = resultado
-        } catch (error) {
-            console.log(error)
+        } catch {
+            error.value = 'Ciudad no encontrada'
+        } finally {
+            cargando.value = false
         }
 
-
-        
 
     }
     const mostrarClima = computed(() => {
@@ -35,6 +40,8 @@ export default function useClima() {
         obtenerClima,
         clima,
         mostrarClima,
-        convertirKelvinACelsius
+        convertirKelvinACelsius,
+        cargando,
+        error
     }
 }
