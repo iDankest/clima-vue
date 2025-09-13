@@ -13,7 +13,7 @@ export default function useClima() {
         error.value = ''
         try {
             //Obtener Lat y Lon
-            const url = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=1&appid=${apiKey}`
+            const url = `https://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=1&appid=${apiKey}`
             const {data} = await axios.get(url)
             const {lat, lon} = data[0]
             //Obtener clima
