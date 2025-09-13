@@ -6,13 +6,14 @@ html {
   font-size: 62.5%;
 }
 body {
-  background-image: url(../img/bg_clima.jpg);
+  background-image: url(../img/Prueba.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   font-family: 'Outfit', sans-serif;
   color: var(--blanco);
   font-size: 2rem;
+  overflow: hidden;
 }
 .titulo {
   text-align: center;
